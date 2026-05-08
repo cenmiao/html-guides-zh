@@ -192,7 +192,7 @@
         <h3>攻击链和涉及的节点/组件</h3>
 
         <div class="image-container">
-            <img src="https://raw.githubusercontent.com/affaan-m/everything-claude-code/main/assets/images/security/attack-chain.png" alt="Attack Chain">
+            <img src="images/security/attack-chain.png" alt="Attack Chain">
         </div>
 
         <p>例如，我的代理通过网关层连接到 WhatsApp。攻击者知道你的 WhatsApp 号码。他们使用现有的越狱尝试提示注入。他们在聊天中发送越狱垃圾信息。代理读取消息并将其作为指令。它执行一个响应，泄露私人信息。如果你的代理有 root 访问权限，或广泛的文件系统访问权限，或加载了有用的凭据，你就被入侵了。</p>
@@ -318,11 +318,11 @@
         <p>Root 访问是危险的。广泛的本地访问是危险的。同一台机器上的长期凭据是危险的。"YOLO，Claude 会保护我"不是这里正确的做法。答案是隔离。</p>
 
         <div class="image-container">
-            <img src="https://raw.githubusercontent.com/affaan-m/everything-claude-code/main/assets/images/security/sandboxing-comparison.png" alt="Sandboxing Comparison">
+            <img src="images/security/sandboxing-comparison.png" alt="Sandboxing Comparison">
         </div>
 
         <div class="image-container">
-            <img src="https://raw.githubusercontent.com/affaan-m/everything-claude-code/main/assets/images/security/sandboxing-brain.png" alt="Sandboxing Brain">
+            <img src="images/security/sandboxing-brain.png" alt="Sandboxing Brain">
         </div>
 
         <p>原则很简单：如果代理被入侵，爆炸半径需要很小。</p>
@@ -402,7 +402,7 @@ networks:
         <p>LLM 读取的一切都是可执行上下文。一旦文本进入上下文窗口，"数据"和"指令"之间就没有有意义的区别。清理不是装饰性的；它是运行时边界的一部分。</p>
 
         <div class="image-container">
-            <img src="https://raw.githubusercontent.com/affaan-m/everything-claude-code/main/assets/images/security/sanitization.png" alt="Sanitization">
+            <img src="images/security/sanitization.png" alt="Sanitization">
             <p>LGTM 比较 —— 文件对人类看起来干净。模型仍然看到隐藏指令</p>
         </div>
 
@@ -492,7 +492,7 @@ rg -n '<!--|<script|data:text/html|base64,'</code></pre>
         <p>如果你看不到代理读取了什么、调用了什么工具、尝试访问什么网络目的地，你就无法保护它（这应该是显而易见的，但我看到你们在 ralph 循环上运行 claude --dangerously-skip-permissions 然后毫不在意地走开）。然后你回到一团糟的代码库，花更多时间弄清楚代理做了什么而不是完成任何工作。</p>
 
         <div class="image-container">
-            <img src="https://raw.githubusercontent.com/affaan-m/everything-claude-code/main/assets/images/security/observability.png" alt="Observability">
+            <img src="images/security/observability.png" alt="Observability">
             <p>被劫持的运行通常在跟踪中看起来很奇怪，然后才看起来明显恶意</p>
         </div>
 
@@ -530,7 +530,7 @@ rg -n '<!--|<script|data:text/html|base64,'</code></pre>
         <p>此外，终止进程组，而不仅仅是父进程。如果你只终止父进程，子进程可以继续运行。（这也是为什么有时你早上查看 ghostty 标签，发现不知怎么消耗了 100GB RAM，进程暂停，而你电脑上只有 64GB，一堆子进程在你以为它们关闭时疯狂运行）</p>
 
         <div class="image-container">
-            <img src="https://raw.githubusercontent.com/affaan-m/everything-claude-code/main/assets/images/security/ghostyy-overflow.jpeg" alt="Ghostty Overflow">
+            <img src="images/security/ghostyy-overflow.jpeg" alt="Ghostty Overflow">
             <p>有一天醒来看到这个 —— 猜猜罪魁祸首是什么</p>
         </div>
 
