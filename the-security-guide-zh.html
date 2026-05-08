@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI代理安全速查指南 - 中文版</title>
+    <style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;max-width:900px;margin:0 auto;padding:20px;background-color:#f5f5f5;color:#333}.container{background:white;padding:40px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}h1{color:#dc2626;border-bottom:3px solid #dc2626;padding-bottom:15px;margin-bottom:30px}h2{color:#991b1b;margin-top:40px;padding-bottom:10px;border-bottom:1px solid #e5e7eb}h3{color:#7c3aed;margin-top:25px}p{margin:15px 0}code{background:#f1f5f9;padding:2px 6px;border-radius:4px;font-family:"SF Mono",Monaco,Consolas,monospace;font-size:0.9em}pre{background:#1e293b;color:#e2e8f0;padding:15px;border-radius:6px;overflow-x:auto;font-size:0.85em;margin:20px 0}pre code{background:transparent;padding:0;color:inherit}.badge{display:inline-block;background:#dc2626;color:white;padding:4px 12px;border-radius:20px;font-size:0.8em;margin-bottom:10px}.note{background:#eff6ff;border:1px solid #3b82f6;padding:15px;border-radius:6px;margin:20px 0}.danger{background:#fef2f2;border:1px solid #dc2626;padding:15px;border-radius:6px;margin:20px 0}.success{background:#f0fdf4;border:1px solid #22c55e;padding:15px;border-radius:6px;margin:20px 0}hr{border:none;border-top:2px solid #e5e7eb;margin:40px 0}a{color:#2563eb;text-decoration:none}a:hover{text-decoration:underline}.checklist{background:#f8fafc;border:2px solid #dc2626;padding:20px;border-radius:8px;margin:20px 0}</style>
+</head>
+<body>
+<div class="container">
+<span class="badge">安全指南</span>
+<h1>AI代理安全速查指南</h1>
+<p>开源代理的广泛采用已经到来。提示注入不再是一些愚蠢的模型失败；在代理系统中，它可能变成 shell 执行、秘密暴露、工作流滥用或隐蔽的横向移动。</p>
+<hr>
+<h2>攻击向量 / 攻击面</h2>
+<p>攻击向量本质上是任何交互的入口点。你的代理连接的服务越多，你积累的风险就越大。</p>
+<p>Simon Willison 的致命三要素框架：私有数据、不可信内容和外部通信。一旦这三者都存在于同一个运行时，提示注入就不再有趣，而开始变成数据泄露。</p>
+<hr>
+<h2>Claude Code CVE（2026年2月）</h2>
+<p><strong>CVE-2025-59536。</strong> 项目包含的代码可以在信任对话框被接受之前运行。</p>
+<p><strong>CVE-2026-21852。</strong> 攻击者控制的项目可以覆盖 ANTHROPIC_BASE_URL，重定向 API 流量，在信任确认之前泄露 API 密钥。</p>
+<hr>
+<h2>沙箱化</h2>
+<p>Root 访问是危险的。广泛的本地访问是危险的。答案是隔离。</p>
+<p>原则很简单：如果代理被入侵，爆炸半径需要很小。</p>
+<hr>
+<h2>最低标准检查清单</h2>
+<div class="checklist">
+<h3>⚠️ 如果你在 2026 年自主运行代理，这是最低标准：</h3>
+<ul>
+<li>✓ 将代理身份与你的个人账户分离</li>
+<li>✓ 使用短期范围凭据</li>
+<li>✓ 在容器、devcontainer、VM 或远程沙箱中运行不可信工作</li>
+<li>✓ 默认拒绝出站网络</li>
+<li>✓ 限制从包含秘密的路径读取</li>
+<li>✓ 在有权限的代理看到之前清理文件、HTML、截图和链接内容</li>
+<li>✓ 要求批准非沙箱 shell、出口、部署和仓库外写入</li>
+<li>✓ 记录工具调用、批准和网络尝试</li>
+<li>✓ 实现进程组终止和基于心跳的死人开关</li>
+<li>✓ 保持持久记忆狭窄且可丢弃</li>
+<li>✓ 像任何其他供应链工件一样扫描技能、钩子、MCP 配置和代理描述符</li>
+</ul>
+</div>
+<hr>
+<div class="success">
+<p><strong>如果你想要一条规则：</strong>永远不要让便利层超过隔离层。</p>
+</div>
+</div>
+</body>
+</html>
