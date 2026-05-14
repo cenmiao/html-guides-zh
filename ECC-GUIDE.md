@@ -102,6 +102,8 @@ git clone https://github.com/affaan-m/everything-claude-code.git
 
 **目标：** 系统设计、技术决策、架构蓝图
 
+> 📖 **详细指南：** [ECC-GUIDE-architecture-design.md](./ECC-GUIDE-architecture-design.md) - 架构设计阶段的完整使用手册
+
 | 命令/Skill | 用途 | 使用时机 |
 |------------|------|----------|
 | `architect` agent | 系统设计决策 | 复杂架构需要专业设计时 |
@@ -122,6 +124,8 @@ git clone https://github.com/affaan-m/everything-claude-code.git
 ---
 
 ### 阶段 3：开发阶段
+
+> 📖 **详细指南：** [ECC-GUIDE-development.md](./ECC-GUIDE-development.md) - 开发阶段的完整使用手册
 
 #### 通用开发原则
 
@@ -168,6 +172,8 @@ tdd-workflow skill
 
 **目标：** 质量、安全、可维护性检查
 
+> 📖 **详细指南：** [ECC-GUIDE-code-review.md](./ECC-GUIDE-code-review.md) - 代码审查阶段的完整使用手册
+
 | 命令/Skill | 用途 | 使用时机 |
 |------------|------|----------|
 | `/code-review` | 代码质量审查 | **每次代码变更后立即审查** |
@@ -177,13 +183,20 @@ tdd-workflow skill
 | `java-reviewer` agent | Java 审查 | Java 项目 |
 | `rust-reviewer` agent | Rust 审查 | Rust 项目 |
 | `cpp-reviewer` agent | C++ 审查 | C++ 项目 |
+| `kotlin-reviewer` agent | Kotlin 审查 | Kotlin/Android/KMP 项目 |
+| `django-reviewer` agent | Django 审查 | Django 项目 |
 | `database-reviewer` agent | 数据库查询审查 | SQL/数据库变更 |
+| `security-reviewer` agent | 安全漏洞分析 | 涉及用户输入/认证的代码 |
+| `security-review` skill | 安全检查清单 | 安全审计时 |
 
 **审查流程：**
 ```
 完成代码变更后立即：
 /code-review → code-reviewer agent 检查质量/安全/可维护性
 → 发现问题 → 修复 → 再次审查
+→ 语言特定审查 (go-reviewer/python-reviewer/typescript-reviewer 等)
+→ 安全审查 (security-reviewer)
+→ 数据库审查 (database-reviewer)
 ```
 
 ---
