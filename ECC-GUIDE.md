@@ -205,6 +205,8 @@ tdd-workflow skill
 
 **目标：** 解决构建错误、编译问题
 
+> 📖 **详细指南：** [ECC-GUIDE-build-debug.md](./ECC-GUIDE-build-debug.md) - 构建与调试阶段的完整使用手册
+
 | 命令/Skill | 用途 | 使用时机 |
 |------------|------|----------|
 | `/build-fix` | 修复构建错误 | 构建失败时 |
@@ -213,6 +215,9 @@ tdd-workflow skill
 | `rust-build-resolver` agent | Rust cargo 构建错误 | Rust 项目 |
 | `java-build-resolver` agent | Maven/Gradle 错误 | Java 项目 |
 | `kotlin-build-resolver` agent | Kotlin/Gradle 错误 | Kotlin 项目 |
+| `dart-build-resolver` agent | Dart/Flutter 构建错误 | Flutter 项目 |
+| `swift-build-resolver` agent | Swift/Xcode 构建错误 | Swift 项目 |
+| `django-build-resolver` agent | Django/Python 构建错误 | Django 项目 |
 | `pytorch-build-resolver` agent | PyTorch/CUDA 错误 | ML 训练崩溃 |
 
 **调试流程：**
@@ -227,6 +232,8 @@ tdd-workflow skill
 ### 阶段 6：测试阶段
 
 **目标：** 单元测试、集成测试、E2E 测试、覆盖率
+
+> 📖 **详细指南：** [ECC-GUIDE-testing.md](./ECC-GUIDE-testing.md) - 测试阶段的完整使用手册
 
 | 命令/Skill | 用途 | 使用时机 |
 |------------|------|----------|
@@ -251,6 +258,8 @@ tdd-workflow skill
 
 **目标：** 漏洞检测、OWASP Top 10、配置安全
 
+> 📖 **详细指南：** [ECC-GUIDE-security.md](./ECC-GUIDE-security.md) - 安全审计阶段的完整使用手册
+
 | 命令/Skill | 用途 | 使用时机 |
 |------------|------|----------|
 | `/security-scan` | AgentShield 安全扫描 | **任何涉及用户输入/认证/API 的代码** |
@@ -271,6 +280,8 @@ tdd-workflow skill
 
 **目标：** 删除死代码、优化结构
 
+> 详细指南：[ECC-GUIDE-refactor.md](ECC-GUIDE-refactor.md)
+
 | 命令/Skill | 用途 | 使用时机 |
 |------------|------|----------|
 | `/refactor-clean` | 死代码清理 | 项目维护、代码瘦身 |
@@ -282,6 +293,8 @@ tdd-workflow skill
 ### 阶段 9：文档与发布
 
 **目标：** 文档更新、发布准备
+
+> 详细指南：[ECC-GUIDE-docs-release.md](ECC-GUIDE-docs-release.md)
 
 | 命令/Skill | 用途 | 使用时机 |
 |------------|------|----------|
@@ -297,6 +310,8 @@ tdd-workflow skill
 
 **目标：** 从会话中提取模式、进化技能
 
+> 详细指南：[ECC-GUIDE-learning.md](ECC-GUIDE-learning.md)
+
 | 命令/Skill | 用途 | 使用时机 |
 |------------|------|----------|
 | `/learn` | 会话中提取模式 | 开发过程中发现新模式 |
@@ -304,6 +319,10 @@ tdd-workflow skill
 | `/instinct-status` | 查看学习的本能 | 查看积累的经验 |
 | `/evolve` | 聚类本能成技能 | 本能积累足够后 |
 | `/instinct-export` | 导出本能分享 | 团队知识共享 |
+| `/instinct-import` | 导入他人的本能 | 接收团队知识 |
+| `/promote` | 提升项目本能到全局 | 跨项目复用时 |
+| `/prune` | 清理过期本能 | 定期维护 |
+| `continuous-learning-v2` skill | 本能学习系统 | 自动学习配置 |
 
 ---
 
